@@ -1,0 +1,323 @@
+
+:root {
+    --primary-color: #2C3E50; /* Gris Oscuro Azulado */
+    --secondary-color: #18BC9C; /* Turquesa Brillante */
+    --acento-color: #F39C12; /* Naranja/Ámbar Vibrante */
+    --light-bg: #f8f9fa; /* Color de fondo claro */
+    --dark-bg: #34495e; /* Color de fondo oscuro (similar al primario) */
+    --font-family-base: Arial, sans-serif;
+}
+ 
+/* Clases de utilidad para colores de Font Awesome/Texto */
+.text-primary-color { color: var(--primary-color) !important; }
+.text-secondary-color { color: var(--secondary-color) !important; }
+.text-acento-color { color: var(--acento-color) !important; }
+
+/* Clases de utilidad para botones */
+.btn-primary-color {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+.btn-primary-color:hover {
+    background-color: #1a252f; /* Un poco más oscuro */
+    border-color: #1a252f;
+}
+.btn-secondary-color {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color); /* Texto en color principal */
+}
+.btn-secondary-color:hover {
+    background-color: #148f77; /* Un poco más oscuro */
+    border-color: #148f77;
+    color: white;
+}
+
+/* ====================================
+   2. Estilos Generales
+   ==================================== */
+body {
+    font-family: var(--font-family-base);
+    color: var(--primary-color);
+}
+
+.page-section {
+    padding: 8rem 0; /* Espaciado entre secciones */
+}
+
+/* Jerarquía de Tipografía */
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+
+/* Efecto de Sombra para Texto en Banner */
+.text-shadow-lg {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ====================================
+   3. Estilos de Secciones Específicas
+   ==================================== */
+
+/* Navbar */
+#mainNav {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    border-bottom: 3px solid transparent; /* Inicialmente transparente */
+}
+
+#mainNav .navbar-brand {
+    color: var(--secondary-color);
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+#mainNav .nav-item .nav-link {
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#mainNav .nav-item .nav-link:hover {
+    color: var(--acento-color);
+}
+
+/* Navbar Shrink al hacer scroll */
+#mainNav.navbar-shrink {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: var(--dark-bg); /* Un poco más oscuro al encoger */
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+/* Sección Inicio (Masthead/Banner) */
+#inicio {
+    min-height: 100vh; /* Ocupa al menos toda la altura de la vista */
+    background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
+                      url('[https://images.unsplash.com/photo-1583337130417-3346a1be7dee](https://images.unsplash.com/photo-1583337130417-3346a1be7dee)');
+    background-repeat: no-repeat;
+    background-size: cover; /* Imagen responsive */
+    background-position: center;
+}
+
+.hero-title {
+    font-size: 5rem;
+}
+
+/* Botón CTA Grande */
+.btn-xl {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.25rem;
+}
+
+/* Sección Servicios (Cards) */
+.service-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.card-img-top-container {
+    height: 200px; /* Altura fija para el contenedor de imagen */
+    overflow: hidden;
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Imagen responsive */
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-img {
+    transform: scale(1.05);
+}
+
+/* Sección Equipo (Cards) */
+.team-card {
+    border: 1px solid #dee2e6;
+    transition: box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(243, 156, 18, 0.5) !important; /* Sombra con color de acento */
+}
+
+.team-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Sección Testimonios (Carrusel) */
+.testimonial-card {
+    position: relative;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+    border: 5px solid transparent; /* Base para el borde arcoíris */
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    /* Efecto Latido del Corazón - Keyframes abajo */
+    cursor: pointer;
+}
+
+/* Clases de Borde Arcoíris */
+.border-red { border-color: #e74c3c !important; }
+.border-orange { border-color: #f39c12 !important; }
+.border-yellow { border-color: #f1c40f !important; }
+.border-green { border-color: #2ecc71 !important; }
+.border-blue { border-color: #3498db !important; }
+.border-indigo { border-color: #9b59b6 !important; }
+.border-violet { border-color: #8e44ad !important; }
+.border-pink { border-color: #ff9ff3 !important; }
+
+/* Ajuste del carrusel para 4 items en vista desktop */
+@media (min-width: 992px) {
+    #testimonialCarousel .carousel-inner .carousel-item-next.carousel-item-start,
+    #testimonialCarousel .carousel-inner .carousel-item-prev.carousel-item-end {
+        transform: translateX(0);
+    }
+    #testimonialCarousel .carousel-inner .carousel-item-next,
+    #testimonialCarousel .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+    #testimonialCarousel .carousel-inner .carousel-item-start {
+        transform: translateX(0);
+    }
+    #testimonialCarousel .carousel-inner .carousel-item-end {
+        transform: translateX(25%);
+    }
+    /* El truco de Bootstrap para el carrusel con múltiples items es aplicar
+       `transform: translateX(-100% / N)` donde N es el número de items visibles.
+       Como esto es muy complejo de mantener en CSS puro y no es un estándar de Bootstrap,
+       lo dejaremos en el comportamiento por defecto de 1 item, que es lo que Bootstrap maneja mejor en este contexto.
+       Mantendremos 4 columnas por vista y el carrusel de 1 en 1 para simplicidad y responsividad.
+    */
+}
+
+/* Controles de Navegación del Carrusel */
+.carousel-control-prev-btn, .carousel-control-next-btn {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1; /* Siempre visibles */
+    transition: background-color 0.3s ease;
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.carousel-control-prev-btn:hover, .carousel-control-next-btn:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+
+/* Sección Contacto (Tarjeta y Formulario) */
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+}
+
+.contact-card:hover {
+    transform: scale(1.05); /* Animación hover en tarjeta de contacto */
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.8) !important; /* Sombra acentuada */
+}
+
+.form-card {
+    border-radius: 1rem;
+}
+
+/* Efecto Hover en botones de contacto */
+.hover-shadow-acento:hover {
+    box-shadow: 0 0 10px var(--acento-color) !important;
+}
+
+
+/* ====================================
+   4. Animaciones (Keyframes)
+   ==================================== */
+
+/* Animación de Latido del Corazón (Heartbeat) */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.heartbeat-animation {
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+
+/* ====================================
+   5. Media Queries para Responsividad
+   ==================================== */
+
+/* Móviles (Hasta 576px) */
+@media (max-width: 576px) {
+    .page-section {
+        padding: 4rem 0;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .display-6 {
+        font-size: 2rem !important;
+    }
+}
+
+/* Tabletas (577px a 991px) */
+@media (min-width: 577px) and (max-width: 991px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
+/* Ajuste del Footer */
+.footer {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-social {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-social:hover {
+    color: var(--acento-color);
+    background-color: white;
+}
